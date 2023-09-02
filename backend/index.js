@@ -52,6 +52,20 @@ app.get("/books", async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 });
+// Route to get a single Book from database by id
+app.get("/books/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const book = await BookModel.findById(id);
+    // returns an array of book object
+    // but here we change the response to get length of items in the array
+    return res.status(200).json(book);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
 
 // connect to db
 mongoose
