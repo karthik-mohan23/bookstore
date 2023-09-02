@@ -15,7 +15,7 @@ const bookSchema = mongoose.Schema(
       required: true,
     },
   },
-  //   field for time of creation/update
+  //   field for created & updated time
   { timestamps: true }
 );
 
