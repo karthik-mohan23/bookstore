@@ -5,8 +5,13 @@ const mongoose = require("mongoose");
 const BookModel = require("./models/bookModel");
 // routes
 const booksRoute = require("./routes/booksRoute");
+// cors
+const cors = require("cors");
 
 const app = express();
+
+// Middleware for handling cors policy
+app.use(cors());
 
 // Middleware for parsing request body
 app.use(express.json());
